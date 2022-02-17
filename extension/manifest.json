@@ -1,0 +1,19 @@
+{
+  "name": "KAIST auto 2FA",
+  "description": "Easy way to login KAIST service",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": ["https://iam2.kaist.ac.kr/*"],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["script.js"],
+      "matches": ["https://iam2.kaist.ac.kr/*"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["tabs", "storage"]
+}
