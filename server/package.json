@@ -1,0 +1,29 @@
+{
+  "name": "kaist-auto-2fa-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrasshopperBears/kaist-auto-2fa-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrasshopperBears/kaist-auto-2fa-server/issues"
+  },
+  "homepage": "https://github.com/GrasshopperBears/kaist-auto-2fa-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "smtp-server": "^3.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
