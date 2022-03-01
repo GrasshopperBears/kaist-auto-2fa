@@ -1,11 +1,10 @@
-const KAIST_OTP_URL = "https://iam2.kaist.ac.kr/#/checkOtp";
+const KAIST_OTP_URL = 'https://iam2.kaist.ac.kr/#/checkOtp';
 
 let requested = false;
 let answered = false;
 
 const notifyUser = () => {
-  document.querySelector("input[type='password']").style =
-    "background-color: black; color: white;";
+  document.querySelector("input[type='password']").style = 'background-color: black; color: white;';
 };
 
 const requestCode = async (url) => {
@@ -26,10 +25,10 @@ const requestCode = async (url) => {
 
 const main = async () => {
   if (!window.location.href.startsWith(KAIST_OTP_URL)) return;
-  if (!document.getElementById("email")) return setTimeout(main, 200);
+  if (!document.getElementById('email')) return setTimeout(main, 200);
 
-  document.getElementById("email").click();
-  chrome.storage.sync.get(["url"], (values) => {
+  document.getElementById('email').click();
+  chrome.storage.sync.get(['url'], (values) => {
     if (!values.url) return;
 
     const url = values.url;
@@ -41,4 +40,4 @@ const main = async () => {
 };
 
 main();
-window.addEventListener("locationchange", main);
+window.addEventListener('locationchange', main);
