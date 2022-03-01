@@ -1,3 +1,4 @@
+const KAIST_COMMON_LOGIN_URL = 'https://iam2.kaist.ac.kr/#/commonLogin';
 const KAIST_OTP_URL = 'https://iam2.kaist.ac.kr/#/checkOtp';
 
 let requested = false;
@@ -23,7 +24,13 @@ const requestCode = async (url) => {
   }
 };
 
+const clickPasswordAuth = () => {
+  const [target] = Array.prototype.slice.call(document.querySelectorAll('input')).filter((input) => input.value === '비밀번호 인증');
+  target.click();
+};
+
 const main = async () => {
+  if (window.location.href.startsWith(KAIST_COMMON_LOGIN_URL)) return clickPasswordAuth();
   if (!window.location.href.startsWith(KAIST_OTP_URL)) return;
   if (!document.getElementById('email')) return setTimeout(main, 200);
 
@@ -40,4 +47,4 @@ const main = async () => {
 };
 
 main();
-window.addEventListener('locationchange', main);
+window.addEventListener('click', () => setTimeout(main, 500));
