@@ -42,7 +42,7 @@ const main = async () => {
     const interval = setInterval(() => {
       if (answered) clearTimeout(interval);
       requestCode(url);
-    }, 1000);
+    }, 300);
   });
 };
 
